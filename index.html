@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VBT Barbell Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>⚡ VBT Tracker</h1>
+    <div id="status-badge" class="badge disconnected" aria-live="polite">Disconnected</div>
+  </header>
+
+  <main>
+    <!-- ── Controls ── -->
+    <section class="controls">
+      <button id="btn-connect" type="button">Connect Tracker</button>
+      <div class="select-wrapper">
+        <label for="lift-select">Lift</label>
+        <select id="lift-select">
+          <option value="Deadlift">Deadlift</option>
+          <option value="Squat">Squat</option>
+          <option value="Bench">Bench</option>
+        </select>
+        <span id="sync-status"></span>
+      </div>
+    </section>
+
+    <!-- ── Live Display ── -->
+    <section class="live-display">
+      <div class="metric-card">
+        <span class="metric-label">Mean Velocity</span>
+        <span id="live-velocity" class="metric-value" aria-live="polite">—</span>
+        <span class="metric-unit">m/s</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">EST RPE</span>
+        <span id="live-rpe" class="metric-value" aria-live="polite">—</span>
+      </div>
+    </section>
+
+    <!-- ── Session History ── -->
+    <section class="history">
+      <h2>Session History</h2>
+      <div class="table-scroll">
+        <table id="history-table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Time</th>
+              <th scope="col">Lift</th>
+              <th scope="col">Velocity (m/s)</th>
+              <th scope="col">RPE</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
